@@ -1,0 +1,220 @@
+@import "abstracts/variables";
+@import "abstracts/fonts";
+@import "abstracts/mixins";
+@import "components/buttons";
+@import "components/logo";
+@import "components/modal";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: $dark-3xl;
+}
+
+.our-pets {
+  display: flex;
+  flex-direction: column;
+  justify-items: start;
+  width: 100%;
+}
+
+h3 {
+  @include text-georgia(35px, 130%, $dark-l);
+
+  @include media-tablet {
+    @include text-georgia(25px, 32.5px, $dark-l);
+  }
+}
+
+@import "layouts/background-wrapper";
+@import "layouts/wrapper";
+@import "components/burger";
+@import "layouts/header-dark";
+@import "layouts/footer";
+
+.wrapper-sticky {
+  width: 100%;
+  background: $light-xl;
+  position: sticky;
+  top: 0.001px;
+  z-index: 1600;
+}
+
+
+.pets {
+  padding: 80px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    width: 400px;
+    text-align: center;
+    padding-bottom: 60px;
+
+    @include media-laptop {
+      padding-bottom: 30px;
+    }
+
+    @include media-tablet {
+      padding-bottom: 42px;
+    }
+  }
+
+  .cards-container {
+    width: 1200px;
+    height: 930px;
+    position: relative;
+    left: 0;
+
+    .slider-item {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 30px 40px;
+    }
+
+    .slider-item_next {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 30px 40px;
+    }
+
+    .pets-slider__card {
+      margin: 0;
+      width: 270px;
+      height: 435px;
+      background: $light-s;
+      @include text-georgia(20px, 23px, $dark-l, 0.06em);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        margin: 30px 0;
+      }
+
+      button {
+        margin-bottom: 30px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $light-xl;
+
+        & button {
+          background: $primary-light;
+        }
+      }
+    }
+
+
+  }
+
+  .navigation {
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+  }
+
+  @include media-laptop {
+    padding-bottom: 75px;
+
+    .cards-container {
+      width: 580px;
+      height: 1365px;
+      .slider-item {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+  
+      .slider-item_next {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+      }
+    }
+
+    
+
+    .navigation {
+      padding-top: 40px;
+    }
+  }
+
+  @include media-tablet {
+    padding: 42px 0;
+
+    &__title {
+      width: 300px;
+    }
+
+    .cards-container {
+      width: 270px;
+      height: 1365px;
+      .slider-item{
+        grid-template-columns: 1fr;
+      }
+      .slider-item_next{
+        grid-template-columns: 1fr;
+      }
+      
+
+     
+    }
+
+    .navigation {
+      //padding-top: 40px;
+      width: 300px;
+    }
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1;
+  }
+}
+
+.transition-fade {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+
+@keyframes burger-open {
+  from {
+    right: -320px;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@keyframes burger-close {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: -320px;
+  }
+}
