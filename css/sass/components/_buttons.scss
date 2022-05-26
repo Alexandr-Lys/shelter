@@ -1,0 +1,70 @@
+%button-arrow {
+  width: 52px;
+  height: 52px;
+  border: 2px solid $primary;
+  border-radius: 100px;
+  @include flex-align();
+  color: $dark-3xl;
+  background: $light-xl;
+  @include text-georgia(20px, 115%, $dark-3xl, 0.06em);
+  margin: 0;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+    background: $primary-light;
+  }
+}
+
+.button-primary {
+  background: $primary;
+  border-style: none;
+  border-radius: 100px;
+  padding: 15px 45px;
+  height: 52px;
+  @include flex-align();
+  @include text-georgia(17px, 130%, $dark-3xl, 0.06em);
+
+  &:hover {
+    cursor: pointer;
+    background: $primary-light;
+  }
+}
+
+.button-light {
+  border: 2px solid $primary;
+  border-radius: 100px;
+  padding: 15px 45px;
+  background: $light-xl;
+  @include flex-align();
+  height: 52px;
+  @include text-georgia(17px, 130%, $dark-3xl, 0.06em);
+
+  &:hover {
+    cursor: pointer;
+    background: $primary-light;
+  }
+}
+
+
+
+.button{
+  @extend %button-arrow;
+  &_disable {
+    color: $dark-s;
+    border: 2px solid $dark-s;
+    &:hover {
+      cursor: auto;
+      background: $light-xl;
+    }
+  }
+  &_fix {
+    background: $primary;
+    &:hover {
+      cursor: auto;
+      background: $primary;
+    }
+  }
+  &_right{
+    transform: rotate(180deg);
+  }
+}

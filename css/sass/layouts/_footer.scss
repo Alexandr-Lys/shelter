@@ -1,0 +1,107 @@
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    h3 {
+      @include text-georgia(34px, 45.5px, $light-xl, 2.5px)
+    }
+    p {
+      @include text-georgia(20px, 115%, $primary)
+    }
+
+    .footer-pet{
+      width: 300px;
+      height: 350px;
+      padding-top: 40px;
+    }
+
+    .contacts {
+      width: 278px;
+      padding: 56px 0 60px;
+
+      &__mail {
+        margin: 40px 0;
+        @include flex-align();
+        justify-content: start;
+        img {
+          margin-right: 20px;
+        }
+      }
+
+      &__phone {
+        @include flex-align();
+        justify-content: start;
+        img {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .locations {
+      width: 302px;
+      padding: 56px 0 60px;
+
+      .locations__boston {
+        margin: 34px 0 32px;
+        @include flex-align();
+        justify-content: start;
+        img {
+          margin-right: 20px;
+        }
+      }
+
+      .locations__london {
+        @include flex-align();
+        justify-content: start;
+        img {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    @include media-laptop{
+      justify-content: center;
+      column-gap: 60px;
+      .contacts{
+        padding: 30px 0 65px;
+      }
+      .locations{
+        padding: 30px 0 65px;
+      }
+      .footer-pet{
+        height: 310px;
+        padding: 0;
+      }
+    }
+
+    @include media-tablet{
+      margin: 0 auto;
+      width: 300px;
+      justify-content: center;
+      h3{
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        @include text-georgia(25px, 32.5px, $light-xl)
+      }
+      .contacts{
+        padding: 30px 0 0;
+        &__mail{
+          justify-content: center;
+        }
+        &__phone{
+          justify-content: center;
+        }
+      }
+      & .locations{
+        padding: 40px 0;
+        .locations__boston{
+          margin: 40px 0;
+        }
+      }
+      .footer-pet{
+        width: 260px;
+        height: 269px;
+      }
+    }
+  }

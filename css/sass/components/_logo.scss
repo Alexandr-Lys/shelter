@@ -1,0 +1,25 @@
+.logo {
+  width: 186px;
+  height: 60px;
+
+  &__title {
+    margin: 0;
+    @include text-georgia(32px, 35.2px, $primary, 0.06em);
+  }
+
+  &__subtitle {
+    margin-top: 9px;
+    margin-left: 4px;
+    @include text-arial(13px, 15px, $light-xl, 0.1em);
+  }
+
+  &_dark{
+    .logo__title {
+      color: $dark-l;
+    }
+
+    .logo__subtitle {
+      color: $dark-3xl;
+    }
+  }
+}

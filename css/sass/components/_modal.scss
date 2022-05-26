@@ -1,0 +1,179 @@
+@keyframes modal-animation-open {
+    from {
+        transform: scale(0%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes modal-animation-close {
+    to {
+        transform: scale(0%);
+    }
+}
+
+.close {
+    animation-name: modal-animation-close;
+    animation-duration: .5s;
+}
+
+.open {
+    animation-name: modal-animation-open;
+    animation-duration: .5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(41, 41, 41, 0.6);
+    z-index: 1050;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.modal {
+    position: relative;
+    width: 900px;
+    background-color: $light-s;
+    border-radius: 5px;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    display: flex;
+    column-gap: 29px;
+
+    &:hover {
+        cursor: auto;
+    }
+
+    .modal-img {
+        width: 500px;
+        height: max-content;
+    }
+
+    .modal-content {
+        width: 351px;
+        padding: 50px 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__title {
+            color: black;
+        }
+
+        &__subtitle {
+            margin-top: 10px;
+            @include text-georgia(20px, 23px, black);
+        }
+
+        &__description {
+            margin: 40px 0;
+            @include text-georgia(15px, 16.5px, black);
+        }
+
+        &__list {
+            @include text-georgia(15px, 16.5px, black);
+
+            & li {
+                list-style: none inside;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+            }
+
+            & li:before {
+                content: '';
+                margin-right: 10px;
+                width: 4px;
+                height: 4px;
+                background: url('../../assets/icons/dot.png');
+            }
+        }
+    }
+
+    @include media-laptop {
+        width: 630px;
+        column-gap: 11px;
+
+        .modal-img {
+            width: 350px;
+        }
+
+        .modal-content {
+            width: 260px;
+            padding: 10px 0;
+
+            &__description {
+                margin: 20px 0;
+            }
+
+            &__list li {
+                margin-bottom: 6px;
+            }
+
+        }
+    }
+    @include media-tablet {
+        width: 240px;
+        justify-content: center;
+
+        .modal-img {
+            display: none;
+        }
+
+        .modal-content {
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+
+            &__title {
+                margin: 0 auto;
+                @include text-georgia(35px, 45.5px, black);
+            }
+
+            &__subtitle{
+                margin: 10px auto 0;
+            }
+            &__description{
+                text-align: justify;
+                margin: 20px 0 24px;
+                @include text-georgia(13px, 14.3px, black);
+            }
+
+
+        }
+    }
+}
+
+.modal__close-icon {
+    position: absolute;
+    left: 890px;
+    top: -52px;
+    width: 52px;
+    height: 52px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @include media-laptop {
+        left: 621px;
+    }
+    @include media-tablet{
+        left: 218px;
+    }
+}
