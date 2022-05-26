@@ -1,0 +1,507 @@
+@import "abstracts/variables";
+@import "abstracts/fonts";
+@import "abstracts/mixins";
+@import "components/buttons";
+@import "components/logo";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  color: $dark-3xl;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+h3 {
+  @include text-georgia(35px, 130%, $dark-l);
+
+  @include media-tablet {
+    @include text-georgia(25px, 32.5px, $dark-l);
+  }
+}
+
+@import "layouts/background-wrapper";
+@import "layouts/wrapper";
+@import "layouts/header-dark";
+@import "components/burger";
+@import "components/_modal";
+
+.main-content {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+
+  &__text {
+    width: 460px;
+    padding-top: 163px;
+
+    h2 {
+      margin: 0;
+      width: 84%;
+      @include text-georgia(44px, 57px, $light-xl, normal);
+    }
+
+    p {
+      margin: 42px 0;
+      @include text-arial(15px, 160%, $dark-s);
+    }
+
+  }
+
+  &__img {
+    width: 698px;
+    height: max-content;
+  }
+
+  @include media-laptop {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+
+    &__text {
+      padding: 60px 0 100px;
+    }
+
+    &__img {
+      width: calc(139px + 569px);
+      padding-left: 139px;
+    }
+
+    button {
+      margin: 0 auto;
+    }
+  }
+
+  @include media-tablet {
+    margin: 0 auto;
+    width: 300px;
+    justify-content: center;
+    text-align: center;
+
+    &__text {
+      width: 100%;
+      padding-bottom: 105px;
+    }
+
+    h2 {
+      margin: 0 auto;
+      @include text-georgia(25px, 32.5px, $light-xl);
+    }
+
+    img {
+      width: 300px;
+      padding-left: 40px;
+    }
+  }
+
+}
+
+.about {
+  //margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+
+  width: 71%;
+  margin: 0 auto;
+
+  &__text {
+
+    //width: 36%;
+    width: 430px;
+    padding-top: 94px;
+
+    h3 {
+      width: 85%;
+    }
+
+    p {
+      @include text-arial(15px, 160%, $dark-xl);
+      margin: 25px 0;
+    }
+  }
+
+  &__img {
+    padding: 80px 0 100px;
+
+    @include media-laptop {
+      padding-top: 55px;
+      padding-bottom: 98px;
+    }
+  }
+
+  @include media-laptop {
+    justify-content: center;
+
+    &__text {
+      padding-top: 80px;
+    }
+  }
+
+  @include media-tablet {
+    width: 270px;
+
+    &__text {
+      text-align: center;
+      padding-top: 42px;
+
+      h3 {
+        width: 100%;
+        margin-bottom: 25px;
+      }
+
+      & p {
+        @include text-arial(15px, 24px, $dark-xl);
+        margin: 0 0 22px;
+        text-align: justify;
+      }
+    }
+
+    &__img {
+      width: 260px;
+      padding: 20px 0 40px;
+    }
+  }
+}
+
+
+.pets {
+  margin: 80px 0 100px 0;
+
+  h3 {
+    margin: 0 auto;
+    width: 85%;
+    text-align: center;
+  }
+
+  & .button-primary_center {
+    margin: 0 auto;
+  }
+
+  .pets-slider {
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .slider-container {
+      width: 990px;
+      height: 435px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      position: relative;
+      left: 0;
+
+    }
+
+    .slider-item {
+      display: flex;
+      column-gap: 90px;
+      position: absolute;
+      &_left {
+        display: flex;
+        column-gap: 90px;
+        position: absolute;
+        left: -990px;
+      }
+
+      &_right {
+        display: flex;
+        column-gap: 90px;
+        position: absolute;
+        left: 990px;
+      }
+    }
+
+    &__card {
+      margin: 0;
+      width: 270px;
+      height: 435px;
+      background: $light-s;
+      @include text-georgia(20px, 23px, $dark-l, 0.06em);
+      text-align: center;
+
+      p {
+        margin: 24px 0;
+      }
+
+      button {
+        margin: 30px auto;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $light-xl;
+
+        & button {
+          background: $primary-light;
+        }
+      }
+    }
+
+    @include media-laptop {
+
+      .slider-container{
+        width: 580px;
+      }
+
+      .slider-wrapper {
+        justify-content: center;
+        column-gap: 40px;
+      }
+    }
+  }
+
+  @include media-tablet {
+    margin: 0 auto;
+    padding: 42px 0;
+    width: 300px;
+
+    h3 {
+      width: 100%;
+    }
+
+    & .pets-slider {
+      justify-content: center;
+      position: relative;
+      padding: 42px 0 114px;
+
+      & .button-left {
+        position: absolute;
+        bottom: 42px;
+        left: 58px;
+      }
+
+      & .button-right {
+        position: absolute;
+        bottom: 42px;
+        left: 190px;
+      }
+
+      &__card:nth-of-type(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+.help {
+  padding-top: 80px;
+
+  h3 {
+    margin: 0 auto;
+    width: 31%;
+    text-align: center;
+
+    @include media-laptop {
+      width: 45%;
+    }
+
+    @include media-tablet {
+      width: 80%;
+    }
+  }
+
+  .help__list {
+    padding: 60px 85px 97px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 120px;
+    row-gap: 55px;
+
+
+    .help__list-item {
+      @include flex-align();
+      flex-direction: column;
+
+      h4 {
+        margin-top: 30px;
+        @include text-georgia(20px, 23px, $dark-l)
+      }
+    }
+
+    @include media-laptop {
+      padding: 60px 39px 100px;
+      column-gap: 60px;
+
+      .help__list-item {
+        width: 170px;
+      }
+
+    }
+
+    @include media-tablet {
+      margin: 0 auto;
+      padding: 42px 0;
+      width: 290px;
+      justify-content: start;
+      column-gap: 30px;
+
+      .help__list-item {
+        width: 130px;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        h4 {
+          margin-top: 20px;
+          @include text-georgia(15px, 16.5px, $dark-l)
+        }
+      }
+    }
+  }
+
+  @include media-tablet {
+    padding-top: 42px;
+
+    .help__list {
+      gap: 30px;
+    }
+  }
+}
+
+.donation {
+  width: 77%;
+  margin: 0 auto;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+
+  &__img {
+    padding: 91px 30px 0 0;
+    height: max-content;
+  }
+
+  &__content {
+    padding: 80px 0 100px;
+    width: 380px;
+
+    .donation__content-header {
+      margin: 0;
+      width: 83%;
+    }
+
+    h5 {
+      @include text-georgia(15px, 110%, $dark-l);
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      @include media-laptop {
+        margin-top: 19px;
+      }
+    }
+
+    p {
+      margin-top: 20px;
+      font-family: "Arial Italic", sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: $dark-m;
+    }
+
+    button {
+      background: $primary;
+      border-style: none;
+      border-radius: 9px;
+      width: 349px;
+      height: 43px;
+      @include flex-align();
+      @include text-georgia(20px, 115%, $dark-l);
+
+      img {
+        margin-right: 15px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $primary-light;
+      }
+    }
+  }
+
+  @include media-laptop {
+    &__content {
+      padding-bottom: 60px;
+    }
+
+    &__img {
+      padding: 0 0 100px;
+    }
+  }
+
+  @include media-tablet {
+    width: 74%;
+
+    &__img {
+      padding-bottom: 42px;
+      width: 260px;
+    }
+
+    &__content {
+      padding: 42px 0;
+      width: 300px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .donation__content-header {
+        text-align: center;
+        width: 75%;
+      }
+
+      h5 {
+        line-height: 160%;
+        letter-spacing: 0.1px;
+      }
+
+      p {
+        width: 280px;
+        text-align: justify;
+      }
+
+      button {
+        width: 281px;
+        @include text-georgia(15px, 110%, $dark-l);
+      }
+    }
+  }
+}
+
+
+@import "layouts/footer";
+
+
+@keyframes move-right {
+  from {left: 0;}
+  to {left: -990px;}
+}
+@keyframes move-left {
+  from {left: 0;}
+  to {left: 990px;}
+}
+.transition-right{
+  animation-name: move-right;
+  animation-duration: 1s;
+}
+.transition-left{
+  animation-name: move-left;
+  animation-duration: 1s;
+}

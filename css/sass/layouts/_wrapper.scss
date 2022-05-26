@@ -1,0 +1,11 @@
+.wrapper {
+  margin: 0 auto;
+  width: $content-width;
+  @include media-laptop{
+    width: 100%;
+    padding: 0 30px;
+  }
+  @include media-tablet {
+    padding: 0 10px;
+  }
+}
